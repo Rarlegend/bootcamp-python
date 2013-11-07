@@ -4,7 +4,6 @@ We represent an English dictionary by using a python set
 with a python dictionary here--anytime you see the word
 "dictionary", we mean English dictionary).
 """
-
 def load(dictionary_name):
     """
     Opens the file called `dictionary_name` and returns
@@ -15,23 +14,29 @@ def load(dictionary_name):
 
     Each line in the file contains exactly one word.
     """
-    # TODO: remove the pass line and write your own code
-    pass
+    f = open(dictionary_name)
+    lines = f.readlines()
+    words = set()
+    for x in lines:
+        stripped = x.strip
+        words.add(stripped)
+    f.close()
+    return words
 
 def check(dictionary, word):
     """
     Returns True if `word` is in the English `dictionary`.
     """
-    pass
+    return word in dictionary
 
 def size(dictionary):
     """
     Returns the number of words in the English `dictionary`.
     """
-    pass
+    return len(dictionary)
 
 def unload(dictionary):
     """
     Removes everything from the English `dictionary`.
     """
-    pass
+    dictionary.clear
